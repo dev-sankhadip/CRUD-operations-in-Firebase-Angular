@@ -1,0 +1,29 @@
+<h1>Add Student</h1>
+<form class="add">
+    <label for="name">Name</label>
+    <input type="text" name="name" required [(ngModel)]="studentDetails.name" />
+
+    <label for="age">Age</label>
+    <input type="text" name="age" required [(ngModel)]="studentDetails.age" />
+
+    <button type="button" (click)="add()">Add</button>
+</form>
+<br>
+<br>
+
+<h1>Student List</h1>
+<div class="show">
+    <ng-container *ngFor="let student of studentCollectiondata">
+        <div>
+            <label for="name-show">Name</label>
+            <input type="text" name="name-show" [value]="student.name" required #name>
+
+            <label for="age-show">Age</label>
+            <input type="text" name="age-show" [value]="student.age" required #age>
+
+            <button type="button" (click)="delete(student.id)">Delete</button>
+            <button type="button" (click)="update(student.id, name, age)">Update</button>
+        </div>
+        <br>
+    </ng-container>
+</div>
